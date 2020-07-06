@@ -4212,11 +4212,17 @@ func (desc *ColumnDescriptor) IsComputed() bool {
 
 // DefaultExprStr is part of the cat.Column interface.
 func (desc *ColumnDescriptor) DefaultExprStr() string {
+	if desc.DefaultExpr == nil {
+		return ""
+	}
 	return *desc.DefaultExpr
 }
 
 // ComputedExprStr is part of the cat.Column interface.
 func (desc *ColumnDescriptor) ComputedExprStr() string {
+	if desc.ComputeExpr == nil {
+		return ""
+	}
 	return *desc.ComputeExpr
 }
 
